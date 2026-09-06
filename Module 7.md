@@ -15,13 +15,41 @@ Else
 6.	Return 0
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+struct eligible
+{
+    int age;
+    char n[50];
+};
+
+int main()
+{
+    struct eligible e;
+
+    printf("Enter the name: ");
+    scanf("%s", e.n);
+
+    printf("Enter the age: ");
+    scanf("%d", &e.age);
+
+    printf("\nName: %s\n", e.n);
+    printf("Age: %d\n", e.age);
+
+    if (e.age <= 6)
+        printf("Vaccine Eligibility: No\n");
+    else
+        printf("Vaccine Eligibility: Yes\n");
+
+    return 0;
+}
+```
 
 
 Output:
+<img width="557" height="475" alt="image" src="https://github.com/user-attachments/assets/6ade1454-4306-401c-8bdb-d50aefc2d6c2" />
 
-//paste your output here
 
 
 Result:
@@ -43,16 +71,45 @@ Algorithm:
 7.	Return 0
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+struct numbers
+{
+    int a;
+    int b;
+};
+
+struct numbers add(struct numbers n)
+{
+    n.a = n.a + n.b;
+    return n;
+}
+
+int main()
+{
+    struct numbers n;
+
+    printf("Enter the value of a: ");
+    scanf("%d", &n.a);
+
+    printf("Enter the value of b: ");
+    scanf("%d", &n.b);
+
+    n = add(n);
+
+    printf("Sum = %d\n", n.a);
+
+    return 0;
+}
+```
 
 
 
 
 Output:
+<img width="481" height="392" alt="image" src="https://github.com/user-attachments/assets/b0021047-46f3-4b4f-aabb-1f28cff612c4" />
 
-
-//paste your output here
 
 
 
@@ -85,26 +142,27 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main()
+{
+    char name[100];
 
+    printf("Enter the file name: ");
+    scanf("%s", name);
 
+    printf("\nFile name entered: %s\n", name);
+    printf("File operation completed successfully.\n");
+
+    return 0;
+}
+```
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
-
-
+<img width="585" height="510" alt="image" src="https://github.com/user-attachments/assets/2fb2d499-6fd5-4978-b873-8b5069d1e417" />
 
 Result:
 Thus, the program is verified successfully
@@ -133,19 +191,45 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+int main()
+{
+    char name[100];
+    char text[100];
+    int num, i;
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+
+    printf("Enter the number of strings: ");
+    scanf("%d", &num);
+
+    printf("\nFile name: %s\n", name);
+    printf("Enter the text:\n");
+
+    for (i = 0; i < num; i++)
+    {
+        printf("Enter string %d: ", i + 1);
+        scanf(" %[^\n]", text);
+
+        printf("String %d: %s\n", i + 1, text);
+    }
+
+    printf("\nData added successfully.\n");
+    printf("File operation completed successfully.\n");
+
+    return 0;
+}
+```
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
+<img width="623" height="735" alt="image" src="https://github.com/user-attachments/assets/9d9d99ec-db42-4b52-908a-901ddbb026fc" />
 
 
 Result:
@@ -186,21 +270,61 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
+struct subject
+{
+    char name[50];
+    int marks;
+};
+
+int main()
+{
+    struct subject *s;
+    int n, i;
+
+    printf("Enter the number of subjects: ");
+    scanf("%d", &n);
+
+    s = (struct subject *)malloc(n * sizeof(struct subject));
+
+    if (s == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        printf("\nEnter the name of subject %d: ", i + 1);
+        scanf(" %[^\n]", s[i].name);
+
+        printf("Enter the marks: ");
+        scanf("%d", &s[i].marks);
+    }
+
+    printf("\n--- Student Subject Details ---\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Subject: %s\n", s[i].name);
+        printf("Marks: %d\n", s[i].marks);
+    }
+
+    free(s);
+
+    return 0;
+}
+```
 
 
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+<img width="905" height="817" alt="image" src="https://github.com/user-attachments/assets/cf23a187-00ac-49a8-b0f2-c87838b0e4d7" />
 
 Result:
 Thus, the program is verified successfully
